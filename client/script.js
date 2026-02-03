@@ -25,6 +25,7 @@ let collected = [];
 const startPage = document.getElementById("startPage");
 const quiz = document.getElementById("quiz");
 const result = document.getElementById("result");
+const finalLove = document.getElementById("finalLove");
 const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("options");
 const summary = document.getElementById("summary");
@@ -54,7 +55,7 @@ function startQuiz() {
 /* SHOW QUESTION */
 function showQuestion() {
   quiz.classList.remove("fade");
-  void quiz.offsetWidth; // restart animation
+  void quiz.offsetWidth;
   quiz.classList.add("fade");
 
   const q = questions[index];
@@ -86,16 +87,27 @@ async function answer(question, option) {
   index < questions.length ? showQuestion() : showResult();
 }
 
-/* SHOW RESULT */
+/* SHOW RESULT → FINAL PAGE */
 function showResult() {
   quiz.classList.add("hidden");
   result.classList.remove("hidden");
 
+  summary.innerHTML = "";
   collected.forEach((a) => {
     summary.innerHTML += `
       <p><strong>${a.question}</strong><br/>💖 ${a.option}</p><hr/>
     `;
   });
+
+  setTimeout(() => {
+    result.classList.add("hidden");
+    finalLove.classList.remove("hidden");
+  }, 4000);
+}
+
+/* FINAL YES */
+function foreverYes() {
+  startConfetti();
 }
 
 /* CONFETTI */

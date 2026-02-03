@@ -14,7 +14,6 @@ body {
   overflow: hidden;
 }
 
-/* HEARTS */
 .hearts {
   position: fixed;
   inset: 0;
@@ -22,7 +21,6 @@ body {
   z-index: 1;
 }
 
-/* CARD */
 .card {
   background: #fff0f6;
   padding: 30px;
@@ -34,7 +32,6 @@ body {
   transform: translateX(60px);
 }
 
-/* BUTTONS */
 button {
   width: 100%;
   margin: 12px 0;
@@ -47,7 +44,6 @@ button {
   cursor: pointer;
 }
 
-/* HEARTBEAT */
 .heartbeat {
   animation: heartbeat 1.8s infinite;
 }
@@ -60,15 +56,11 @@ button {
   25% {
     transform: scale(1.05);
   }
-  50% {
-    transform: scale(1);
-  }
   75% {
     transform: scale(1.08);
   }
 }
 
-/* FADE + SLIDE */
 .fade {
   animation: fadeSlide 0.5s ease;
 }
@@ -84,7 +76,6 @@ button {
   }
 }
 
-/* COUNTDOWN */
 .countdown {
   position: absolute;
   font-size: 80px;
@@ -93,12 +84,10 @@ button {
   z-index: 3;
 }
 
-/* HIDDEN */
 .hidden {
   display: none;
 }
 
-/* FLOATING HEART */
 .hearts span {
   position: absolute;
   bottom: -30px;
@@ -115,4 +104,12 @@ button {
     transform: translateY(-110vh);
     opacity: 0;
   }
+}
+
+.couple-img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 18px;
+  margin: 15px auto;
+  box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
 }
