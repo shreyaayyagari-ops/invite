@@ -111,8 +111,19 @@ function showResult() {
 /* 💍 FINAL YES → PLAY VIDEO */
 function foreverYes() {
   startConfetti();
+
   videoOverlay.classList.remove("hidden");
-  loveVideo.play();
+
+  loveVideo.muted = false; // allow sound AFTER user gesture
+  loveVideo.currentTime = 0;
+
+  const playPromise = loveVideo.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      loveVideo.muted = true;
+      loveVideo.play();
+    });
+  }
 }
 
 /* CONFETTI */
