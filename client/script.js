@@ -22,25 +22,55 @@ const questions = [
 let index = 0;
 let collected = [];
 
-const questionEl = document.getElementById("question");
-const optionsEl = document.getElementById("options");
+const startPage = document.getElementById("startPage");
 const quiz = document.getElementById("quiz");
 const result = document.getElementById("result");
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
 const summary = document.getElementById("summary");
+const countdownEl = document.getElementById("countdown");
 
+/* START QUIZ WITH COUNTDOWN */
+function startQuiz() {
+  startPage.classList.add("hidden");
+  countdownEl.classList.remove("hidden");
+
+  let count = 3;
+  countdownEl.innerText = count;
+
+  const timer = setInterval(() => {
+    count--;
+    countdownEl.innerText = count;
+
+    if (count === 0) {
+      clearInterval(timer);
+      countdownEl.classList.add("hidden");
+      quiz.classList.remove("hidden");
+      showQuestion();
+    }
+  }, 1000);
+}
+
+/* SHOW QUESTION */
 function showQuestion() {
+  quiz.classList.remove("fade");
+  void quiz.offsetWidth; // restart animation
+  quiz.classList.add("fade");
+
   const q = questions[index];
   questionEl.innerText = q.text;
   optionsEl.innerHTML = "";
 
   q.options.forEach((opt) => {
     const btn = document.createElement("button");
+    btn.className = "heartbeat";
     btn.innerText = opt;
     btn.onclick = () => answer(q.text, opt);
     optionsEl.appendChild(btn);
   });
 }
 
+/* HANDLE ANSWER */
 async function answer(question, option) {
   collected.push({ question, option });
 
@@ -56,6 +86,7 @@ async function answer(question, option) {
   index < questions.length ? showQuestion() : showResult();
 }
 
+/* SHOW RESULT */
 function showResult() {
   quiz.classList.add("hidden");
   result.classList.remove("hidden");
@@ -67,9 +98,7 @@ function showResult() {
   });
 }
 
-showQuestion();
-
-/* Confetti */
+/* CONFETTI */
 function startConfetti() {
   const canvas = document.getElementById("confetti");
   const ctx = canvas.getContext("2d");
@@ -95,7 +124,7 @@ function startConfetti() {
   draw();
 }
 
-/* Floating Hearts */
+/* FLOATING HEARTS */
 setInterval(() => {
   const heart = document.createElement("span");
   heart.innerText = "💖";

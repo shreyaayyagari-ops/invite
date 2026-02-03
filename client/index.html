@@ -2,20 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>For My bujji bulli budamkay💖</title>
+    <title>For My bujji bulli budamkay 💖</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="hearts"></div>
 
-    <div class="card" id="quiz">
+    <!-- START PAGE -->
+    <div class="card" id="startPage">
+      <h1>Are you ready for a quick quiz? 💖</h1>
+      <p>Just a few cute questions 😌</p>
+
+      <button class="heartbeat" onclick="startQuiz()">Yes, let’s go 💕</button>
+      <button class="heartbeat" onclick="startQuiz()">No… but take the quiz anyway 😏</button>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div id="countdown" class="countdown hidden">3</div>
+
+    <!-- QUIZ PAGE -->
+    <div class="card hidden fade" id="quiz">
       <h1 id="question"></h1>
       <div id="options"></div>
     </div>
 
-    <div class="card hidden" id="result">
-      <h1>💖 Your Answers 💖</h1>
+    <!-- RESULT PAGE -->
+    <div class="card hidden fade" id="result">
+      <h1>💌 I Love You 💌</h1>
+      <p style="margin-bottom: 15px">Thank you for coming into my life keep kissing me more 🥹💖</p>
       <div id="summary"></div>
+      <h2 style="margin-top: 20px; color: #ff4d88">Forever your buddii 💕</h2>
     </div>
 
     <canvas id="confetti"></canvas>
