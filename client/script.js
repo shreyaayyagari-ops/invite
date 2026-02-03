@@ -31,7 +31,10 @@ const optionsEl = document.getElementById("options");
 const summary = document.getElementById("summary");
 const countdownEl = document.getElementById("countdown");
 
-/* START QUIZ WITH COUNTDOWN */
+const videoOverlay = document.getElementById("videoOverlay");
+const loveVideo = document.getElementById("loveVideo");
+
+/* START QUIZ */
 function startQuiz() {
   startPage.classList.add("hidden");
   countdownEl.classList.remove("hidden");
@@ -87,7 +90,7 @@ async function answer(question, option) {
   index < questions.length ? showQuestion() : showResult();
 }
 
-/* SHOW RESULT → FINAL PAGE */
+/* SHOW RESULT */
 function showResult() {
   quiz.classList.add("hidden");
   result.classList.remove("hidden");
@@ -105,9 +108,11 @@ function showResult() {
   }, 4000);
 }
 
-/* FINAL YES */
+/* 💍 FINAL YES → PLAY VIDEO */
 function foreverYes() {
   startConfetti();
+  videoOverlay.classList.remove("hidden");
+  loveVideo.play();
 }
 
 /* CONFETTI */
@@ -134,6 +139,11 @@ function startConfetti() {
     requestAnimationFrame(draw);
   }
   draw();
+}
+
+function replayVideo() {
+  loveVideo.currentTime = 0;
+  loveVideo.play();
 }
 
 /* FLOATING HEARTS */

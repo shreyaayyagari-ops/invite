@@ -222,4 +222,38 @@ button:hover {
   .countdown {
     font-size: 72px;
   }
+  /* 🎥 VIDEO OVERLAY */
+  .video-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 182, 193, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  .video-overlay video {
+    width: 90%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.5);
+  }
+  /* 🎥 VIDEO CONTAINER */
+  .video-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* 🔁 REPLAY BUTTON */
+  .replay-btn {
+    width: auto;
+    padding: 10px 24px;
+    font-size: 15px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff69b4, #ff85c2);
+    box-shadow: 0 8px 18px rgba(255, 105, 180, 0.4);
+  }
 }

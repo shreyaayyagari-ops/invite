@@ -34,8 +34,6 @@
       <h2 style="margin-top: 20px; color: #ff4d88">Forever your buddii 💕</h2>
     </div>
 
-    <!-- FINAL LOVE PAGE -->
-    <!-- FINAL LOVE PAGE -->
     <div class="card hidden fade" id="finalLove">
       <h1>Will you be mine forever? 💍💖</h1>
 
@@ -44,6 +42,16 @@
       <p class="final-text">Thank you for making my heart smile🥹 and my eyes shine💖 I Love You</p>
 
       <button class="heartbeat" onclick="foreverYes()">YES 💖 Forever</button>
+    </div>
+    <div id="videoOverlay" class="video-overlay hidden">
+      <div class="video-box">
+        <video id="loveVideo" controls autoplay>
+          <source src="forever.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <button id="replayBtn" class="heartbeat replay-btn" onclick="replayVideo()">🔁 Replay 💖</button>
+      </div>
     </div>
 
     <canvas id="confetti"></canvas>
