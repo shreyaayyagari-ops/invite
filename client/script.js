@@ -112,11 +112,14 @@ function showResult() {
 function foreverYes() {
   startConfetti();
 
+  // show overlay
   videoOverlay.classList.remove("hidden");
 
-  loveVideo.muted = false; // allow sound AFTER user gesture
+  // reset video
+  loveVideo.pause();
   loveVideo.currentTime = 0;
 
+  // play safely (mobile + desktop)
   const playPromise = loveVideo.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
